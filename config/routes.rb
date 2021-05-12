@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :products
   root 'pages#home'
   get 'info', to: 'pages#info'
-
+  get 'admin', to: 'pages#admin_section'
+  
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
     get 'signup', to: 'devise/registrations#new'

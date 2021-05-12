@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :admin_user
+  before_action :require_admin_user
 
   # GET /products or /products.json
   def index
@@ -69,9 +69,4 @@ class ProductsController < ApplicationController
       params.require(:product).permit(:name, :description, :price, :vegetarian, :vegan, :available, :featured)
     end
 
-    def admin_user
-      if !current_user.admin? 
-        redirect_to(root_url)
-      end
-    end
 end
