@@ -1,11 +1,11 @@
 FactoryBot.define do
   factory :product do
-    name { "MyString" }
-    description { "MyText" }
-    price { "9.99" }
+    name { Faker::Food.dish  }
+    description { Faker::Food.description }
+    price { Faker::Number.decimal(l_digits: 2) }
     vegetarian { false }
     vegan { false }
-    available { false }
+    available { true }
     featured { false }
   end
 end
