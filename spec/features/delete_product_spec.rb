@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Delete product', type: :feature do
 
-  scenario 'valid inputs' do
+  scenario 'as admin valid inputs' do
+    sign_up_as_admin
     product = FactoryBot.create(:product)
 
     visit products_path
