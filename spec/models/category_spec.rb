@@ -29,4 +29,13 @@ RSpec.describe Category, type: :model do
       expect(subject.errors[:description]).to include("500 characters is the maximum allowed")
     end
   end
+
+  context 'name is not unique' do
+    before { Category.create(name: 'Burger') } 
+    subject { Category.create(name: 'Burger') }
+
+    it 'is not valid' do
+      expect(subject.errors[:name]).to include('has already been taken')
+    end 
+  end
 end
