@@ -31,8 +31,9 @@ RSpec.describe Product, type: :model do
   end
 
   context 'name is not unique' do
-    before { Product.create(name: 'Burger') } 
-    subject { Product.create(name: 'Burger') }
+    let (:category) { Category.create(name: 'Meat') }
+    before { Product.create(name: 'Burger', category: category) }
+    subject { Product.create(name: 'Burger', category: category) }
 
     it 'is not valid' do
       expect(subject.errors[:name]).to include('has already been taken')
