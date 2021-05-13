@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :category do
-    name { "MyString" }
-    description { "MyText" }
-    display { false }
+    name { Faker::Food.dish }
+    description { Faker::Food.description }
+    display { true }
   end
 end
