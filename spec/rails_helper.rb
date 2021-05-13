@@ -64,3 +64,6 @@ RSpec.configure do |config|
   config.include Devise::Test::IntegrationHelpers, type: :feature
   config.include Helpers::Authentication, type: :feature
 end
+
+
+# Capybara.default_driver = :selenium_chrome
