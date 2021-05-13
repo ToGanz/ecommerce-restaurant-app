@@ -12,7 +12,14 @@ RSpec.describe 'Creating a product', type: :feature do
     expect(page).to have_current_path(root_path)
   end
 
-  scenario 'admin user with valid inputs' do
+  scenario 'admin user with valid inputs but no category present' do
+    sign_up_as_admin
+
+    visit new_product_path
+    expect(page).to have_current_path(new_category_path)
+  end
+
+  scenario 'admin user with valid inputs and category' do
     sign_up_as_admin
 
     visit new_product_path
