@@ -22,20 +22,31 @@ RSpec.describe 'Creating a product', type: :feature do
   scenario 'admin user with valid inputs and category' do
     sign_up_as_admin
 
+    visit new_category_path
+    fill_in 'Name', with: 'Pizza'
+    fill_in 'Description', with: 'Italian'
+    click_on 'Create Category'
+
     visit new_product_path
-    fill_in 'Name', with: 'Cheeseburger'
-    fill_in 'Description', with: 'Burger with cheese'
-    fill_in 'Price', with: 9.99
+    fill_in 'Name', with: 'Salami'
+    fill_in 'Description', with: 'Hungarian Salami'
+    select('Pizza', :from => 'product[category_id]')
+  
     click_on 'Create Product'
 
-    visit products_path
-    expect(page).to have_content("Cheeseburger")
-    expect(page).to have_content("Burger with cheese")
-    expect(page).to have_content("9.99")
+    expect(page).to have_content("Salami")
+    expect(page).to have_content("Hungarian Salami")
+    expect(page).to have_content("Pizza")
   end
 
   scenario 'invalid inputs' do
     sign_up_as_admin
+
+    visit new_category_path
+    fill_in 'Name', with: 'Pizza'
+    fill_in 'Description', with: 'Italian'
+    click_on 'Create Category'
+    
     visit new_product_path
     fill_in 'Name', with: ''
     fill_in 'Description', with: 'Burger with cheese'

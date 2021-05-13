@@ -29,7 +29,7 @@
   <% default_cat_id = product.category.nil? ? Category.first.id : product.category.id %>
   <div class="field">
     <%= form.label :category %>
-    <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :heading, default_cat_id) %>
+    <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name, default_cat_id) %>
   </div>
 
   <div class="field">
