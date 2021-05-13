@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :require_admin_user
+  before_action :check_categories, only: [:new, :create, :edit]
 
   # GET /products or /products.json
   def index
@@ -66,7 +67,11 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :vegetarian, :vegan, :available, :featured)
+      params.require(:product).permit(:name, :description, :price, :category_id, :vegetarian, :vegan, :available, :featured)
     end
 
+    # no product without category
+    def check_categories
+      redirect_to new_category_path if Category.count == 0
+    end
 end
