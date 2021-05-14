@@ -1,0 +1,33 @@
+<div class="row">
+  <%= form_tag(search_path, method: :get, remote: true) do %> 
+    <div class="input-group md-5">
+      <div class="col-8 p-0">
+        <%= search_field_tag :search, 
+              nil, 
+              placeholder: 'Search...', 
+              class: "form-control", 
+              onkeydown: "clickSubmit()"
+        %>   
+      </div>
+      <div class="col-4 p-0">
+        <%= select_tag "filter", 
+              options_for_select([
+                "Vegan",
+                "Vegetarian"
+              ]),
+              include_blank: "Select a filter",
+              onchange: "clickSubmit()",
+              class: "form-select"
+        %>
+      </div>
+      <%= submit_tag "Search", class: "btn btn-dark", id: "search_submit", class: "d-none" %>
+    </div>  
+  <% end %>
+</div>  
+
+
+<script>
+  function clickSubmit() {
+    document.querySelector('#search_submit').click();
+  }
+</script>
