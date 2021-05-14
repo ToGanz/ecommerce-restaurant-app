@@ -38,6 +38,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'faker'
+  gem 'rexml'
 end
 
 group :development do
