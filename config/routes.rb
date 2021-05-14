@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'menu/index'
   resources :categories
   devise_for :users
   resources :products
