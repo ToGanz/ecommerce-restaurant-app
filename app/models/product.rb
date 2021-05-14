@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :category
+  has_one_attached :product_image
   
   validates :name, presence: true, uniqueness: true
   validates :description, length: { maximum: 500, too_long: "%{count} characters is the maximum allowed" }
