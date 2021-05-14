@@ -1,13 +1,13 @@
-<div class="row">
-  <% @categories.each do |category| %>
 
+<% @categories.each do |category| %>
+  <div class="row category-<%= category.id %>">
     <div class="col-12">
-      <h1 class="text-center"><%= category.heading %></h1>
+      <h1 class="text-center"><%= category.name %></h1>
     </div>
 
     <% @products.each do |product| %>
       <% if product.category == category %>
-        <div class="col-4">
+        <div class="col-sm-4 product">
           <h5><%= product.name %></h5>
 
           <p><%= product.description %>
@@ -17,5 +17,5 @@
         </div>
       <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
