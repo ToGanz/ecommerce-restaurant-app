@@ -7,6 +7,7 @@ FactoryBot.define do
     vegan { false }
     available { true }
     featured { false }
+    image { nil }
     category
   end
 end

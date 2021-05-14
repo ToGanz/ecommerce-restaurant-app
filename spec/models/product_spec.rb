@@ -39,4 +39,32 @@ RSpec.describe Product, type: :model do
       expect(subject.errors[:name]).to include('has already been taken')
     end 
   end
+
+  context '.acceptable_image' do
+    subject { FactoryBot.build(:product) }
+
+    it 'is valid' do
+      url = URI.parse('https://picsum.photos/1920/1080.jpg')
+      file = URI.open(url)
+      subject.image.attach(io: open(file), filename: "picsum")
+      subject.save
+      expect(subject).to be_valid
+    end 
+
+    it 'must be a JPEG or PNG' do
+      url = URI.parse('https://picsum.photos/1920/1080.webp')
+      file = URI.open(url)
+      subject.image.attach(io: open(file), filename: "picsum")
+      subject.save
+      expect(subject.errors[:image]).to include('must be a JPEG or PNG')
+    end 
+
+    it 'is too big' do
+      url = URI.parse('https://picsum.photos/3000/3000.jpg')
+      file = URI.open(url)
+      subject.image.attach(io: open(file), filename: "picsum")
+      subject.save
+      expect(subject.errors[:image]).to include('is too big')
+    end 
+  end
 end
