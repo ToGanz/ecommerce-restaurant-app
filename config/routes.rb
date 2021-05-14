@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  get 'menu/index'
   resources :categories
   devise_for :users
   resources :products
   root 'pages#home'
   get 'info', to: 'pages#info'
   get 'admin', to: 'pages#admin_section'
-  
+  get 'menu', to: 'menu#index'
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
     get 'signup', to: 'devise/registrations#new'
