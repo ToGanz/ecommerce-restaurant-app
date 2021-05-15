@@ -26,10 +26,7 @@ RSpec.describe Order, type: :model do
         subject.line_items.create(product: product2,  quantity: 3)
         subject.save
         expect(subject.total).to eq(52.22)
-
-        subject.line_items.delete_all
-        subject.save
-        expect(subject.total).to eq(0)
+    
       end
 
       it 'is 0 after all line items get deleted' do
