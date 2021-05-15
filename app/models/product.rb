@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :category
+  has_many :line_items
   has_one_attached :image
   
   validate :acceptable_image
