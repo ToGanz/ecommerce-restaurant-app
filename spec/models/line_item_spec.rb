@@ -10,7 +10,6 @@ RSpec.describe LineItem, type: :model do
   end
 
   describe 'before save' do
-    subject { FactoryBot.create(:line_item) }
 
     context '#set_unit_price' do
 
