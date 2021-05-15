@@ -40,10 +40,12 @@
   <%= @product.featured %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @product.image.variant(resize_to_limit: [300, nil]) %>
-</p>
+<% if @product.image.attached? %>
+  <p>
+    <strong>Image:</strong>
+    <%= image_tag(@product.image.variant(resize_to_limit: [300, nil]), class: 'img-fluid') %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

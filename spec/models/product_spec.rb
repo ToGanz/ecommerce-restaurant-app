@@ -44,8 +44,7 @@ RSpec.describe Product, type: :model do
     subject { FactoryBot.build(:product) }
 
     it 'is valid' do
-      url = URI.parse('https://picsum.photos/1920/1080.jpg')
-      file = URI.open(url)
+      file = fixture_file_upload("cinema.jpeg", "image/jpeg")
       subject.image.attach(io: open(file), filename: "picsum")
       subject.save
       expect(subject).to be_valid
@@ -60,9 +59,8 @@ RSpec.describe Product, type: :model do
     end 
 
     it 'is too big' do
-      url = URI.parse('https://picsum.photos/3000/3000.jpg')
-      file = URI.open(url)
-      subject.image.attach(io: open(file), filename: "picsum")
+      file = fixture_file_upload("diner_interior_unsplash.jpeg", "image/jpeg")
+      subject.image.attach(io: open(file), filename: "diner")
       subject.save
       expect(subject.errors[:image]).to include('is too big')
     end 
