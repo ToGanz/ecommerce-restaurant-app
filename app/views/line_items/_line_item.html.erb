@@ -1,9 +1,11 @@
-<h3><%= line_item.product.name %></h3>
-<h3><%= line_item.product.price %></h3>
-<%= form_with model: line_item, local: false do |f| %>
-  <%= f.hidden_field(:product_id, value: line_item.product.id) %>
-  <%= f.number_field(:quantity, value: line_item.quantity) %>
-  <%= f.submit "Update Cart" %>
-  <%= link_to "Remove Items", line_item,  method: :delete, remote: true %>
-<% end %>
-<h2>Subtotal: <%= line_item.total %></h2>
+<div id="item-<%= line_item.id %>">
+  <h3><%= line_item.product.name %></h3>
+  <h3><%= line_item.product.price %></h3>
+  <%= form_with model: line_item do |f| %>
+    <%= f.hidden_field(:product_id, value: line_item.product.id) %>
+    <%= f.number_field(:quantity, value: line_item.quantity, min: 1) %>
+    <%= f.submit "Update Cart" %>
+    <%= link_to "Remove Items", line_item,  method: :delete, remote: true %>
+  <% end %>
+  <h2>Subtotal: <%= line_item.total %></h2>
+</div>
