@@ -1,1 +1,1 @@
-<%= link_to "#{current_order.order_items.size} items with a value of #{current_order.subtotal} €", cart_path %>
+<%= link_to "#{pluralize(current_order.number_of, 'items')}  with a value of #{current_order.subtotal} €", cart_path %>
