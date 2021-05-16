@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'admin', to: 'pages#admin_section'
   get 'menu', to: 'menu#index'
   get 'search', to: 'menu#search'
+  get 'cart', to: 'cart#show'
   
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
