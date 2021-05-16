@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :categories
   devise_for :users
   resources :products
+  resources :line_items, only: [:create, :update, :destroy]
+  resources :orders, only: [:index, :show, :edit, :update, :destroy]
 
   root 'pages#home'
   get 'info', to: 'pages#info'

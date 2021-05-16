@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Adding to acart', type: :feature do
-  let(:product) = FactoryBot.create(:product)
-  
+  let(:product) { FactoryBot.create(:product) }
+
   scenario 'add a product' do
     visit menu_path
     click_on 'Add to Cart'
