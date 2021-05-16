@@ -6,6 +6,10 @@ class Order < ApplicationRecord
     line_items.to_a.sum { |item| item.total }
   end
 
+  def number_of_items
+    line_items.to_a.sum { |item| item.quantity }
+  end
+
   def set_total
     self[:total] = subtotal
   end
