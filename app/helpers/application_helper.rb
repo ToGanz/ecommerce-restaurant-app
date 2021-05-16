@@ -7,5 +7,6 @@ module ApplicationHelper
     else
       Order.find_by_id(session[:order_id])
     end
+    # @current_order ||= Order.find_by_id(session[:order_id]) || Order.new
   end
 end
