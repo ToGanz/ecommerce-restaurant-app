@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'Adding to cart', type: :feature, js: true do
+RSpec.describe 'Update cart', type: :feature, js: true do
 
-  scenario 'add a product' do
+  scenario 'change quantity' do
     product = FactoryBot.create(:product)
     add_to_cart(product)
     fill_in 'line_item[quantity]', with: 2
