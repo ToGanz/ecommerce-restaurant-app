@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-
+  include ApplicationHelper
+  
   private
 
   def require_admin_user

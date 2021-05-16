@@ -4,6 +4,7 @@ class MenuController < ApplicationController
   def index
     @page = 'menu'
     @products = Product.all
+    @line_item = current_order.line_items.new
   end
 
   def search
