@@ -14,5 +14,25 @@ class OrdersController < ApplicationController
   def destroy
   end
 
-  
+  def checkout
+    @order = current_order
+  end
+
+  def add_address
+    @order = current_order
+    @order.street =  address_params[:street]
+    @order.city =  address_params[:city]
+    @order.zip =  address_params[:zip]
+    if @order.save
+      # payment
+    else
+      render :checkout, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def address_params
+    params.require(:order).permit(:street, :city, :zip)
+  end
 end
