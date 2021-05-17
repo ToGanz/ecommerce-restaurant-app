@@ -15,9 +15,12 @@ Rails.application.routes.draw do
   get 'cart', to: 'cart#show'
 
 
-  resources :payment, only: [:create]
-  get 'cancel_payment', to: 'payment#cancel'
-  get 'success_payment',  to: 'payment#sucess'
+  scope '/payment' do
+    post 'create', to: 'payment#create', as: 'payment_create'
+    get 'cancel', to: 'payment#cancel', as: 'payment_cancel'
+    get 'success',  to: 'payment#success', as: 'payment_success'
+  end
+ 
 
 
   devise_scope :user do
