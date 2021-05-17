@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   get 'search', to: 'menu#search'
   get 'cart', to: 'cart#show'
   
+  get 'checkout', to: 'orders#checkout'
+  patch 'add_address', to: 'orders#add_address'
+  put 'add_address', to: 'orders#add_address'
+
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
     get 'signup', to: 'devise/registrations#new'
