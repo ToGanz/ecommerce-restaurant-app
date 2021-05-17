@@ -10,6 +10,34 @@ RSpec.describe Order, type: :model do
     end
   end
 
+  context 'street should not be too long' do
+    it 'is not valid' do
+      subject.update(street: 'a' * 141)
+      expect(subject.errors[:street]).to include("140 characters is the maximum allowed")
+    end
+  end
+
+  context 'zip should not be too long' do
+    it 'is not valid' do
+      subject.update(zip: 'a' * 6)
+      expect(subject.errors).to have_key(:zip)
+    end
+  end
+
+  context 'zip should not be too short' do
+    it 'is not valid' do
+      subject.update(zip: 'a' * 4)
+      expect(subject.errors).to have_key(:zip)
+    end
+  end
+
+  context 'city should not be too long' do
+    it 'is not valid' do
+      subject.update(city: 'a' * 81)
+      expect(subject.errors[:city]).to include("80 characters is the maximum allowed")
+    end
+  end
+
   context '#sub_total, #set_total and #number_of_items' do
 
     it 'is 0' do
