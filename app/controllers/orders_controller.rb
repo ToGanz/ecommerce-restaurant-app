@@ -20,10 +20,7 @@ class OrdersController < ApplicationController
 
   def add_address
     @order = current_order
-    @order.street =  address_params[:street]
-    @order.city =  address_params[:city]
-    @order.zip =  address_params[:zip]
-    if @order.save
+    if @order.update(address_params)
       # payment
     else
       render :checkout, status: :unprocessable_entity
