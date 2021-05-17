@@ -1,0 +1,14 @@
+<div id="edit-checkout">
+  <% if @order.number_of_items > 0%>
+    <p><%= "#{pluralize(@order.number_of_items, 'item')} with a value of #{@order.subtotal} €" %></p>
+    <p>Delivery address:</p>
+    <p>Street: <%= @order.street %></p>
+    <p>City: <%= @order.zip %> <%= @order.city %></p>
+    <%= link_to 'Change Address', edit_checkout_path %>
+  <% else %>
+    <p>You don't have anything in your cart.</p>
+  <% end %>
+
+  <%= link_to 'Back to Cart', cart_path %>
+  
+</div>

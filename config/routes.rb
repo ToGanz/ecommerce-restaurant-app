@@ -5,16 +5,20 @@ Rails.application.routes.draw do
   resources :line_items, only: [:create, :update, :destroy]
   resources :orders, only: [:index, :show, :edit, :update, :destroy]
 
+  resource :checkout
+
   root 'pages#home'
   get 'info', to: 'pages#info'
   get 'admin', to: 'pages#admin_section'
   get 'menu', to: 'menu#index'
   get 'search', to: 'menu#search'
   get 'cart', to: 'cart#show'
-  
-  get 'checkout', to: 'orders#checkout'
-  patch 'add_address', to: 'orders#add_address'
-  put 'add_address', to: 'orders#add_address'
+
+
+  resources :payment, only: [:create]
+  get 'cancel_payment', to: 'payment#cancel'
+  get 'success_payment',  to: 'payment#sucess'
+
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
