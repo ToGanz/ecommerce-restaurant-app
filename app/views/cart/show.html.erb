@@ -2,4 +2,5 @@
   <%= render @line_items %>
 
   <h3>Your current order has a total of: <%=  current_order.subtotal %></h3>
+  <%= link_to 'Buy', checkout_path %>
 </div>

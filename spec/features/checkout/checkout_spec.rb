@@ -8,6 +8,11 @@ RSpec.describe 'Checkout', type: :feature, js: true do
   
     click_on 'Buy'
 
+    fill_in 'Street, no.', with: 'Randostreet, 2'
+    fill_in 'City', with: 'Duisburg'
+    fill_in 'Zip', with: '47051'
+    click_on 'Confirm Order'
+    
     expect(page).to have_content("2")
     expect(page).to have_content("Your current order has a total of: #{product.price * 2}")
   end
