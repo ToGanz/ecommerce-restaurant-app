@@ -54,10 +54,12 @@ class PaymentController < ApplicationController
       # Invalid payload
       response = { error: 'Invalid payload' }
       render json: response, status: :bad_request
+      return
     rescue Stripe::SignatureVerificationError => e
       # Invalid signature
       response = { error: 'Invalid signature' }
       render json: response, status: :bad_request
+      return
     end
 
     if event['type'] == 'checkout.session.completed'
