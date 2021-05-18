@@ -47,8 +47,10 @@ class PaymentController < ApplicationController
     # See https://stripe.com/docs/webhooks/signatures for more information.
     begin
       sig_header = request.env['HTTP_STRIPE_SIGNATURE']
+      puts sig_header
       payload = request.body.read
       endpoint_secret =  Rails.application.credentials.stripe[:endpoint_secret]
+      puts endpoint_secret
       event = Stripe::Webhook.construct_event(payload, sig_header, endpoint_secret)
     rescue JSON::ParserError => e
       # Invalid payload
