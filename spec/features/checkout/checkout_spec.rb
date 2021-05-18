@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Checkout', type: :feature, js: true do
 
-  scenario 'change quantity' do
+  scenario 'complete address' do
     product = FactoryBot.create(:product)
     add_to_cart(product)
   
@@ -12,9 +12,9 @@ RSpec.describe 'Checkout', type: :feature, js: true do
     fill_in 'City', with: 'Duisburg'
     fill_in 'Zip', with: '47051'
     click_on 'Confirm Order'
-    
-    expect(page).to have_content("2")
-    expect(page).to have_content("Your current order has a total of: #{product.price * 2}")
+
+    expect(page).to have_content("Randostreet, 2")
+    expect(page).to have_content("47051 Duisburg")
   end
 
   def add_to_cart(product)
