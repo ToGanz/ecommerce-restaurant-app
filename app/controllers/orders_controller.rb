@@ -14,6 +14,15 @@ class OrdersController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @order.update(order_params)
+        format.html { redirect_to @order, notice: "Order was successfully updated." }
+        format.json { render :show, status: :ok, location: @order }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -27,7 +36,7 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit()
+      params.require(:order).permit(:total, :paid, :delivered, :canceled, :street, :city, :zip)
     end
 
 end

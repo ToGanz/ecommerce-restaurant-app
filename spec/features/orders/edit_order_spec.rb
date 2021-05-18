@@ -10,12 +10,12 @@ RSpec.describe 'Update order', type: :feature do
   end
 
   scenario 'valid inputs' do
-    order = FactoryBot.create(:order)
+    order = FactoryBot.create(:order, paid: true, total: 10.0)
     FactoryBot.create(:line_item, order: order)
 
     sign_up_as_admin
 
-    orders_path
+    visit orders_path
     click_on 'Edit'
 
     fill_in 'City', with: 'Hamburg'
