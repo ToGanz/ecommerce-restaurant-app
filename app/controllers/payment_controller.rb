@@ -52,10 +52,10 @@ class PaymentController < ApplicationController
       event = Stripe::Webhook.construct_event(payload, sig_header, endpoint_secret)
     rescue JSON::ParserError => e
       # Invalid payload
-      return status 400
+      return nothing: true, status: :bad_request
     rescue Stripe::SignatureVerificationError => e
       # Invalid signature
-      return status 400
+      return nothing: true, status: :bad_request
     end
 
     if event['type'] == 'checkout.session.completed'
