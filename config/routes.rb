@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get 'cancel', to: 'payment#cancel', as: 'payment_cancel'
     get 'success',  to: 'payment#success', as: 'payment_success'
   end
- 
+  post 'webhook',  to: 'payment#webhook'
 
 
   devise_scope :user do

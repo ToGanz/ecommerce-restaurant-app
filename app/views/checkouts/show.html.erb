@@ -5,7 +5,7 @@
     <p>Street: <%= @order.street %></p>
     <p>City: <%= @order.zip %> <%= @order.city %></p>
     <%= link_to 'Change Address', edit_checkout_path %>
-    <%= button_to "Buy now", payment_create_path, method: :post %>
+    <%= button_to "Buy now", payment_create_path, method: :post, remote: true %>
   <% else %>
     <p>You don't have anything in your cart.</p>
   <% end %>
