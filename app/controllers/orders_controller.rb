@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_category, only: %i[ show edit update destroy ]
+  before_action :set_order, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :require_admin_user
 

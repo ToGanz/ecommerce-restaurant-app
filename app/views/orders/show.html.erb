@@ -1,2 +1,39 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @order.total %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @order.paid %>
+</p>
+
+<p>
+  <strong>Delivered:</strong>
+  <%= @order.delivered %>
+</p>
+
+<p>
+  <strong>Canceled:</strong>
+  <%= @order.canceled %>
+</p>
+
+<p>
+  <strong>Street, no.:</strong>
+  <%= @order.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @order.city %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @order.zip %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@order) %> |
+<%= link_to 'Back', orders_path %>

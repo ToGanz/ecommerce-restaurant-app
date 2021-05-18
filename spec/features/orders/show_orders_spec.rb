@@ -28,4 +28,15 @@ RSpec.describe 'show orders', type: :feature do
     expect(page).not_to have_content('3.0')
     expect(page).not_to have_content('4.0')
   end
+
+  scenario 'show a single order' do
+    order = FactoryBot.create(:order, paid: true, total: 1.0)
+    FactoryBot.create(:line_item, order: order)
+    sign_up_as_admin
+    visit orders_path
+    click_on 'Show'
+    
+    expect(page).to have_content('1.0')
+    
+  end
 end
