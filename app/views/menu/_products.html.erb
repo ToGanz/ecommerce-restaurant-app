@@ -1,25 +1,36 @@
 
 <% @categories.each do |category| %>
-  <div class="row category-<%= category.id %>">
+  <div class="row category" id="category-<%= category.id %>">
     <div class="col-12">
       <h1 class="text-center"><%= category.name %></h1>
+      <% if category.featured_products[0] && category.featured_products[0].image.attached? %>
+        <%= image_tag(category.featured_products[0].image.variant(resize_to_limit: [300, nil]), class: 'img-fluid rounded-circle') %>
+      <% end  %>
     </div>
+  </div>
 
+  <div class="row product">
     <% @products.each do |product| %>
       <% if product.category == category %>
-        <div class="col-sm-4 product">
-          <h5><%= product.name %></h5>
+        <div class="col-lg-4 col-sm-6 mb-30 product">
+          <div class="product-card card mx-auto mb-3">
+            <% if product.image.attached? %>
+              <%= image_tag(product.image.variant(resize_to_limit: [300, 300]), class: 'card-img-top') %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
 
-          <p><%= product.description %>
+              <p class="card-text"><%= product.description %>
 
-          <span><%= product.price %></span>
+              <span><%= product.price %></span>
 
-          <%= form_with model: @line_item, local: false do |f| %>
-            <%= f.hidden_field(:product_id, value: product.id) %>
-            <%= f.number_field(:quantity, value: 1, min: 1) %>
-            <%= f.submit "Add to Cart" %>
-          <% end %>
-
+              <%= form_with model: @line_item, local: false, class: "input-group" do |f| %>
+                <%= f.hidden_field(:product_id, value: product.id) %>
+                <%= f.number_field(:quantity, value: 1, min: 1, class: "form-control") %>
+                <%= f.submit "Add to Cart", class: "btn btn-success" %>
+              <% end %>
+            </div>
+          </div>
         </div>
       <% end %>
     <% end %>
