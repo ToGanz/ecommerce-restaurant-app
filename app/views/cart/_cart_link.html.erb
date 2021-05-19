@@ -1,1 +1,4 @@
-<%= link_to "#{pluralize(current_order.number_of_items, 'item')} with a value of #{current_order.subtotal} €", cart_path %>
+<%= link_to  cart_path, class: "nav-link" do %>
+  <i class="ri-shopping-cart-line"></i>
+  <%= "#{pluralize(current_order.number_of_items, 'item')} with a value of #{current_order.subtotal} €" %>
+<% end %>

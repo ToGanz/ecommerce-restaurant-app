@@ -1,0 +1,11 @@
+.link-list {
+  padding-top: 25px;
+  .nav-link {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .active {
+    color: grey;
+  }
+}
