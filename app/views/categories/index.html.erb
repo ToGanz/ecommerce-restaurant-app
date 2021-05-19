@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Categories</h1>
-
-<table>
+<%= link_to 'New Category', new_category_path, class: "btn btn-success" %>
+<table class="table">
   <thead>
     <tr>
+      <th scope="col">#</th>
       <th>Name</th>
       <th>Description</th>
       <th>Display</th>
@@ -13,14 +14,15 @@
   </thead>
 
   <tbody>
-    <% @categories.each do |category| %>
+    <% @categories.each_with_index  do |category, index| %>
       <tr>
+        <th scope="row"><%= index + 1 %></th>
         <td><%= category.name %></td>
         <td><%= category.description %></td>
         <td><%= category.display %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', category, class: "btn btn-success" %></td>
+        <td><%= link_to 'Edit', edit_category_path(category), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,5 +30,5 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
-<%= link_to 'Back to Dashboard', admin_path %>
+<%= link_to 'New Category', new_category_path, class: "btn btn-success" %>
+<%= link_to 'Back to Dashboard', admin_path, class: "btn btn-warning" %>
