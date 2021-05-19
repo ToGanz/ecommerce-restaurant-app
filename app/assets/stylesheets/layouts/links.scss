@@ -6,6 +6,10 @@
   }
 
   .active {
-    color: grey;
+    color: $jet;
+  }
+
+  #cart {
+    padding-top: 0.7rem;
   }
 }

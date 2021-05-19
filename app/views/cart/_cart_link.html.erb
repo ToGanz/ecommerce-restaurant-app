@@ -1,4 +1,5 @@
-<%= link_to  cart_path, class: "nav-link" do %>
+<%= link_to  cart_path, class: "nav-link rounded-pill btn btn-outline-success" do %>
   <i class="ri-shopping-cart-line"></i>
-  <%= "#{pluralize(current_order.number_of_items, 'item')} with a value of #{current_order.subtotal} €" %>
+  <span class="badge bg-secondary"><%= current_order.number_of_items %></span>
+  <span class="visually-hidden">Items in cart</span>
 <% end %>
