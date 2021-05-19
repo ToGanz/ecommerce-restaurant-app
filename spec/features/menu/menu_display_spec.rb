@@ -12,16 +12,12 @@ RSpec.describe 'display menu', type: :feature do
     visit menu_path
 
     within(".category-#{category1.id}") do
-      expect(page).to have_content(category1.name)
-      expect(page).not_to have_content(category2.name)
       expect(page).to have_content(product1.name)
       expect(page).not_to have_content(product2.name)
       expect(page).to have_content(product3.name)
     end
 
     within(".category-#{category2.id}") do
-      expect(page).not_to have_content(category1.name)
-      expect(page).to have_content(category2.name)
       expect(page).not_to have_content(product1.name)
       expect(page).to have_content(product2.name)
       expect(page).not_to have_content(product3.name)

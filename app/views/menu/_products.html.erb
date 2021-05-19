@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <div class="row product">
+  <div class="row product category-<%= category.id %>">
     <% @products.each do |product| %>
       <% if product.category == category %>
         <div class="col-lg-4 col-sm-6 mb-30 product">

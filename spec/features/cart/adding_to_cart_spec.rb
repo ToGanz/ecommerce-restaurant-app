@@ -7,8 +7,10 @@ RSpec.describe 'Adding to cart', type: :feature, js: true do
     visit menu_path
     click_on 'Add to Cart'
 
-    click_on "1 item with a value of #{product.price} €"
-
+    within('#cart') do
+      click_on "1"
+    end
+  
     expect(page).to have_content(product.name)
     expect(page).to have_content("€ #{product.price}")
   end
