@@ -6,9 +6,9 @@ RSpec.describe 'Remove from cart', type: :feature, js: true do
     product = FactoryBot.create(:product)
     add_to_cart(product)
     
-    click_on 'Remove'
+    find(".ri-delete-bin-3-line").click
 
-    expect(page).to have_content("Your current order has a total of: 0")
+    expect(page).to have_content("€ 0")
   end
 
   def add_to_cart(product)

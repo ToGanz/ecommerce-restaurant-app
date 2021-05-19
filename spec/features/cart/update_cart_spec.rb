@@ -9,8 +9,7 @@ RSpec.describe 'Update cart', type: :feature, js: true do
     
     click_on 'Update'
 
-    expect(page).to have_content("2")
-    expect(page).to have_content("Your current order has a total of: #{product.price * 2}")
+    expect(page).to have_content("€ #{product.price * 2}")
   end
 
   def add_to_cart(product)

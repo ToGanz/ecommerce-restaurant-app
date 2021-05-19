@@ -6,7 +6,7 @@ RSpec.describe 'Checkout', type: :feature, js: true do
     product = FactoryBot.create(:product)
     add_to_cart(product)
   
-    click_on 'Buy'
+    click_on 'Proceed to Checkout'
 
     fill_in 'Street, no.', with: 'Randostreet, 2'
     fill_in 'City', with: 'Duisburg'

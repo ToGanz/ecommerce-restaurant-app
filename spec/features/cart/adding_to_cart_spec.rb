@@ -10,7 +10,7 @@ RSpec.describe 'Adding to cart', type: :feature, js: true do
     click_on "1 item with a value of #{product.price} €"
 
     expect(page).to have_content(product.name)
-    expect(page).to have_content("Your current order has a total of: #{product.price}")
+    expect(page).to have_content("€ #{product.price}")
   end
 
 end

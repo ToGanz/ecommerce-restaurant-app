@@ -1,3 +1,13 @@
-// Place all the styles related to the cart controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+#cart {
+  padding: 0;
+  margin: 0;
+}
+
+.cart-container {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.cart-container .cart-body {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+ 
+}

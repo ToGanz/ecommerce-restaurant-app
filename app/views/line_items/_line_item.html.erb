@@ -1,11 +1,17 @@
-<div id="item-<%= line_item.id %>">
-  <h3><%= line_item.product.name %></h3>
-  <h3><%= line_item.product.price %></h3>
-  <%= form_with model: line_item do |f| %>
-    <%= f.hidden_field(:product_id, value: line_item.product.id) %>
-    <%= f.number_field(:quantity, value: line_item.quantity, min: 1) %>
-    <%= f.submit "Update Cart" %>
-    <%= link_to "Remove", line_item,  method: :delete %>
-  <% end %>
-  <h2>Subtotal: <%= line_item.total %></h2>
-</div>
+<tr id="item-<%= line_item.id %>">
+  <td>
+    <%= link_to line_item,  method: :delete, class: "text-danger" do %>
+      <i class="ri-delete-bin-3-line"></i>
+    <% end %>
+  </td>
+  <td><%= line_item.product.name %></td>
+  <td>
+    <%= form_with model: line_item do |f| %>
+      <%= f.hidden_field(:product_id, value: line_item.product.id) %>
+      <%= f.number_field(:quantity, value: line_item.quantity, min: 1, class: "form-control cart-qty") %>
+      <%= f.submit "Update", class: "btn btn-outline-info btn-sm my-1" %>
+    <% end %>
+  </td>
+  <td><%= line_item.product.price %></td>
+  <td class="text-right"><%= line_item.total %></td>
+</tr>
