@@ -8,7 +8,7 @@ class Product < ApplicationRecord
   validates :description, length: { maximum: 500, too_long: "%{count} characters is the maximum allowed" }
   validates :name, length: { maximum: 140, too_long: "%{count} characters is the maximum allowed" }
 
-
+  scope :featured, -> { where(featured: true) }
 
   private
 
