@@ -4,7 +4,7 @@
     <div class="col-12">
       <h1 class="text-center"><%= category.name %></h1>
       <% if category.featured_products[0] && category.featured_products[0].image.attached? %>
-        <%= image_tag(category.featured_products[0].image.variant(resize_to_limit: [300, nil]), class: 'img-fluid rounded-circle') %>
+        <%= image_tag(category.featured_products[0].image.variant(resize_to_limit: [300, 300]), class: 'img-fluid rounded-circle') %>
       <% end  %>
     </div>
   </div>
