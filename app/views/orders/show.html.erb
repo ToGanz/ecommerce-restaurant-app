@@ -35,5 +35,15 @@
   <%= @order.zip %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<p>
+  <strong>Created at:</strong>
+  <%= @order.created_at.httpdate %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @order.updated_at.httpdate %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@order), class: "btn btn-warning" %> 
+<%= link_to 'Back', orders_path, class: "btn btn-warning" %>

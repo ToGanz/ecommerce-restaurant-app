@@ -47,5 +47,15 @@
   </p>
 <% end %>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<p>
+  <strong>Created at:</strong>
+  <%= @product.created_at.httpdate %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @product.updated_at.httpdate %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %> 
+<%= link_to 'Back', products_path, class: "btn btn-warning" %>
