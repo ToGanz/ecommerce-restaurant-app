@@ -1,4 +1,4 @@
-<div id="edit-checkout container">
+<div id="edit-checkout" class="container">
   <% if current_order.number_of_items > 0%>
     <p><%= "#{pluralize(current_order.number_of_items, 'item')} with a value of #{current_order.subtotal} €" %></p>
     <h2>Fill in the delivery address.</h2>
