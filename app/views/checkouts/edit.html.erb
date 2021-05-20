@@ -1,12 +1,12 @@
-<div id="edit-checkout">
+<div id="edit-checkout container">
   <% if current_order.number_of_items > 0%>
     <p><%= "#{pluralize(current_order.number_of_items, 'item')} with a value of #{current_order.subtotal} €" %></p>
-    <p>Fill in the delivery address.</p>
+    <h2>Fill in the delivery address.</h2>
     <%= render 'checkouts/form', order: @order %>
   <% else %>
     <p>You don't have anything in your cart.</p>
   <% end %>
 
-  <%= link_to 'Back', cart_path %>
+  <%= link_to 'Back', cart_path, class: "btn btn-warning" %>
   
 </div>
