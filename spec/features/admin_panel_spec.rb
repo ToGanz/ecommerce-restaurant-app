@@ -17,6 +17,6 @@ RSpec.describe 'Visiting the admin panel', type: :feature do
 
     visit admin_path
 
-    expect(page).to have_content('Products Panel')
+    expect(page).to have_content('Products')
   end
 end
