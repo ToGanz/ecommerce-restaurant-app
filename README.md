@@ -8,6 +8,10 @@ Ecommerce app in Ruby on Rails.
 Live Site: [https://tobis-foods.herokuapp.com/]
 (free plan so first load might take a few seconds)
 
+
+![image](https://user-images.githubusercontent.com/49613341/118952482-49ba2d80-b95c-11eb-8b1c-ce9edf23f091.png)
+
+
 This is an ecommerce app for an imagenary restaurant. Users can browse and filter the menu, add items to the cart and checkout via credit card. The payment is done via  Stripe checkout. It is still in test mode so no real payment gets made. 
 To make a test payment use:
 * Number: 4242 4242 4242 4242
