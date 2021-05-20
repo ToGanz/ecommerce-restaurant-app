@@ -5,10 +5,20 @@
   </p>
 </div>
 
-<% if user_signed_in? %>
-  <%= link_to 'Admin Section', admin_path %>
-  <%= link_to 'Edit Profile', edit_user_registration_path %>
-  <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to 'Log in', login_path %>
-<% end %>
+<ul class="list-group list-group-flush">
+  <% if user_signed_in? %>
+    <li class="list-group-item">
+      <%= link_to 'Admin Section', admin_path %>
+    </li>
+    <li class="list-group-item">
+      <%= link_to 'Edit Profile', edit_user_registration_path %>
+    </li>
+    <li class="list-group-item">
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+    </li>
+  <% else %>
+    <li class="list-group-item">
+      <%= link_to 'Log in', login_path %>
+    </li>
+  <% end %>
+</ul>
