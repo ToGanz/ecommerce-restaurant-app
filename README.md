@@ -19,12 +19,18 @@ To make a test payment use:
 * Date: any future data
 
 
+### Menu
+![image](https://user-images.githubusercontent.com/49613341/118978977-416feb80-b978-11eb-90b4-b7984ccf1462.png)
+
+
 The app includes admin functionality. The admin can create product categories and products with images. Images get stored with AWS S3. Orders made by customers can be watched and marked as delivered.
 To test the app as an admin use:
 * admin@example.com
 * password123
 
 
+### Admin handling of orders
+![image](https://user-images.githubusercontent.com/49613341/118979078-606e7d80-b978-11eb-8bbb-5c673bb2b8b6.png)
 
 Technologies used: 
 * Ruby on Rails 6.1
