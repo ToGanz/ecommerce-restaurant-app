@@ -3,7 +3,7 @@ class MenuController < ApplicationController
 
   def index
     @page = 'menu'
-    @products = Product.where( { available: true } )
+    @products = Product.where( { available: true } ).order(:name)
     @line_item = current_order.line_items.new
   end
 
