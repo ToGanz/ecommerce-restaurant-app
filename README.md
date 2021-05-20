@@ -1,9 +1,20 @@
 # Ecommerce-Restaurant-App
 
 Ecommerce app in Ruby on Rails.
-* Ruby version: 3.0.1
 
-* Rails: 6.1.3.1
+Technologies used: 
+* Ruby on Rails 6.1
+* postgresql
+* Bootstrap 5
+* RSpec/Capybara for tests
+* Devise for authentication
+* Stripe API for payment
+* AWS S3 for image storage
+* Heroku for hosting
+
+
+I built this app to get familiar with ecommerce solutions and Stripe. I'm planning to build a project with solidus or shopify and I think it's valuable to roll your own MVP-version first.
+
 
 Live Site: [https://tobis-foods.herokuapp.com/]
 (free plan so first load might take a few seconds)
@@ -32,18 +43,7 @@ To test the app as an admin use:
 ### Admin handling of orders
 ![image](https://user-images.githubusercontent.com/49613341/118979078-606e7d80-b978-11eb-8bbb-5c673bb2b8b6.png)
 
-Technologies used: 
-* Ruby on Rails 6.1
-* postgresql
-* Bootstrap 5
-* RSpec/Capybara for tests
-* Devise for authentication
-* Stripe API for payment
-* AWS S3 for image storage
-* Heroku for hosting
 
-
-I built this app to practice authentication with devise and to practice making external API calls within rails.
 
 ## Run the app locally
 
