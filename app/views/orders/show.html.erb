@@ -45,5 +45,15 @@
   <%= @order.updated_at.httpdate %>
 </p>
 
+<p>
+  <strong>Ordered products:</strong>
+</p>
+
+<ul class="order-items">
+  <% @line_items.each do |line_item| %>
+    <li><%= line_item.product.name %>, quantity: <%= line_item.quantity %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_category_path(@order), class: "btn btn-warning" %> 
 <%= link_to 'Back', orders_path, class: "btn btn-warning" %>

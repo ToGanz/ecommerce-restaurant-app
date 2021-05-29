@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @line_items = @order.line_items
   end
 
   def edit
