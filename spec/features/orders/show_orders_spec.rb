@@ -31,12 +31,12 @@ RSpec.describe 'show orders', type: :feature do
 
   scenario 'show a single order' do
     order = FactoryBot.create(:order, paid: true, total: 1.0)
-    FactoryBot.create(:line_item, order: order)
+    line_item = FactoryBot.create(:line_item, order: order)
     sign_up_as_admin
     visit orders_path
     click_on 'Show'
     
     expect(page).to have_content('1.0')
-    
+    expect(page).to have_content(line_item.product.name)
   end
 end
